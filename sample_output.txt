@@ -1,0 +1,9 @@
+GPS Signal Processing Simulator
+--------------------------------
+PRN: 1
+Detection: ACQUIRED
+Estimated Code Phase: 17 chips
+Estimated Doppler: 500 Hz
+Correlation Power: 1046529.00
+
+Educational GPS simulation model.
