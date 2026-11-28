@@ -1,20 +1,25 @@
-
 # GPS Signal Processing Simulator
 
 ## Description
-The GPS Signal Processing Simulator is a C-based project designed to simulate the basic operations of a GPS receiver. It demonstrates GPS C/A code generation, signal generation, Doppler frequency estimation, code phase detection, and correlation-based signal acquisition.
+The GPS Signal Processing Simulator is a C-based project designed to demonstrate the fundamental operations of GPS signal processing. It simulates GPS L1 C/A code generation, baseband signal generation, Doppler frequency estimation, code phase detection, and correlation-based signal acquisition.
 
 ## Features
-- GPS C/A code generation.
-- PRN sequence generation.
-- GPS baseband signal simulation.
-- Doppler frequency estimation.
-- Code phase detection.
-- Correlation-based signal acquisition.
-- Displays signal acquisition results.
-- Saves simulation results in an output file.
+- GPS L1 C/A code generation
+- PRN sequence generation
+- GPS baseband signal simulation
+- Doppler frequency estimation
+- Code phase detection
+- Correlation-based signal acquisition
+- Sample input and output generation
+- Automated test cases
 
-## Project Structure
+## Technologies Used
+- **Programming Language:** C
+- **Concepts:** Digital Signal Processing, GPS Signal Processing
+- **Compiler:** GCC
+- **Build Tool:** Makefile
+
+## Repository Structure
 
 ```text
 gps-signal-processing-simulator/
@@ -44,72 +49,81 @@ gps-signal-processing-simulator/
 └── LICENSE
 ```
 
-## Requirements
-- C Programming Language
-- GCC Compiler
-- Make utility
-- Basic knowledge of GPS and Digital Signal Processing
-
 ## Working Principle
-1. Read GPS configuration parameters from the input file.
-2. Generate the GPS C/A code using a PRN sequence.
-3. Simulate a GPS baseband signal.
-4. Perform signal acquisition using correlation.
-5. Estimate Doppler frequency and code phase.
-6. Display and save the acquisition results.
 
-## Example
-- Input: PRN = 1, Doppler Frequency = 500 Hz, Code Phase = 17 chips.
-- Output: GPS signal acquired successfully with estimated Doppler frequency of 500 Hz and code phase of 17 chips.
+1. **Input Configuration:** Reads PRN number, sampling frequency, Doppler frequency, and code phase.
+2. **PRN Generation:** Generates a 1023-chip GPS C/A code sequence.
+3. **Signal Generation:** Creates a simulated complex baseband GPS signal.
+4. **Signal Acquisition:** Performs correlation between the generated signal and local PRN code.
+5. **Doppler Estimation:** Identifies the Doppler frequency with the highest correlation.
+6. **Code Phase Detection:** Estimates the code phase using correlation results.
+7. **Output Generation:** Saves the acquisition results in a text file.
 
-## How to Compile and Run
+## Sample Input
 
-### Step 1: Clone the Repository
-
-```bash
-git clone https://github.com/your-username/gps-signal-processing-simulator.git
+```text
+1 1023000 500 17 -1000 1000 250
 ```
 
-### Step 2: Open the Project Directory
+## Sample Output
 
-```bash
-cd gps-signal-processing-simulator
+```text
+GPS Signal Processing Simulator
+--------------------------------
+PRN: 1
+Detection: ACQUIRED
+Estimated Code Phase: 17 chips
+Estimated Doppler: 500 Hz
+Correlation Power: 1046529.00
 ```
 
-### Step 3: Compile the Program
+*This is the expected output for the supplied sample configuration.*
+
+## Compilation and Execution
+
+### Compile the project
 
 ```bash
 make
 ```
 
-### Step 4: Run the Simulator
+### Run the simulator
 
 ```bash
 make run
 ```
 
-### Step 5: Run Test Cases
+### Execute test cases
 
 ```bash
 make test
 ```
 
-## Scope
-- Demonstrates basic GPS signal generation and acquisition techniques.
-- Helps understand PRN codes, Doppler frequency, and code phase estimation.
-- Provides a foundation for learning GPS receiver design and digital signal processing.
-- Can be extended with noise simulation, multiple PRN codes, and navigation data processing.
+### Clean generated files
+
+```bash
+make clean
+```
 
 ## Applications
-- GPS receiver algorithm education.
-- Satellite communication studies.
-- Digital signal processing experiments.
-- Navigation system research and learning.
+- Understanding GPS receiver fundamentals
+- Learning satellite signal acquisition
+- Studying digital signal processing
+- Exploring PRN code generation
+- Understanding Doppler frequency estimation
 
+## Scope
+- Demonstrates basic GPS signal generation and acquisition techniques
+- Helps understand PRN codes,Doppler frequency,and code phase estimation
+- Provides a foundation for learning GPS receiver design and digital signal processing
+- Can be extended with noise simulation,multiple PRN codes,and navigation data processing
+  
 ## Limitations
-- Supports PRN 1 only in the current implementation.
-- Uses a simplified noiseless baseband signal model.
-- Does not perform actual satellite tracking or position calculation.
+- Supports PRN 1 only.
+- Uses a simplified noiseless signal model.
+- Does not decode navigation messages.
+- Does not calculate geographical position.
+- Does not simulate real-world RF propagation.
 
 ## Author
 SaiAbhilekha Reddy
@@ -118,7 +132,7 @@ SaiAbhilekha Reddy
 C programming language
 
 ## Domain
-Electronics and Communication Engineering (ECE)
+Electronics and Communication Enigineering(ECE)
 
 ## License
 Released under the MIT License.see LICENSE
